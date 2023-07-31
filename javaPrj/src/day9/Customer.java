@@ -2,7 +2,7 @@ package day9;
 
 public class Customer {
 	// 멤버변수
-	private String id;
+	public String id;
 	private String pw;
 	private String name;
 	private String address;
@@ -13,6 +13,10 @@ public class Customer {
 		this.pw = pw;
 		this.name = name;
 		this.address = address;
+	}
+
+	public Customer() {
+		// TODO Auto-generated constructor stub
 	}
 
 	// 쎄터
