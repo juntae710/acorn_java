@@ -1,6 +1,6 @@
-package day2;
+package day02;
 
-public class 정훈님s32 {
+public class 정훈님s33 {
 
 	public static void main(String[] args) {
 		long a=1;

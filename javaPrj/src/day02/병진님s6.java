@@ -1,4 +1,4 @@
-package day2;
+package day02;
 
 public class 병진님s6 {
 

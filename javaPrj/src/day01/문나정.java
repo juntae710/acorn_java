@@ -1,4 +1,4 @@
-package day1;
+package day01;
 
 public class 문나정 {
 	public static void main(String[] args) {

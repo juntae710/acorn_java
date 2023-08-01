@@ -1,6 +1,6 @@
-package day2;
+package day02;
 
-public class 정훈님s3 {
+public class 정훈님s32 {
 
 	public static void main(String[] args) {
 		long a=1;
@@ -10,15 +10,11 @@ public class 정훈님s3 {
 		
 		System.out.println(a +" "+b);
 		
-		while(true) {
+		while(n<= MAX) {
 			a=a+b;
-			n=n+1;
-			System.out.println(a);
-			if(n==MAX) break;
 			b=a+b;
-			n=n+1;
-			System.out.println(b);
-			if(n==MAX)break;
+			n=n+2;
+			System.out.println(a +" "+b);
 		}
 
 	}
