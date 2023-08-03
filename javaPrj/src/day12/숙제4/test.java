@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class test {
 
 	public static void main(String[] args) {
-		 Scanner sc = new Scanner(System.in); 	
+		
+		Scanner sc = new Scanner(System.in); 	
 		 System.out.println("카카오 잔고를 적어주세요");
 		 int km=sc.nextInt();
 		
@@ -13,9 +14,7 @@ public class test {
 	
 		System.out.println("-----카카오-----");
 		// 입금 (잔고 , 입금액)
-		int result = k.deposit(km, 1000);
-		System.out.println("잔고:" + result);
-		km+=1000;
+		
 		
 		// 출금 (잔고, 출금액, 수수료)
 		int result2 = k.withdraw(km, 1000);
