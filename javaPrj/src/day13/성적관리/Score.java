@@ -76,4 +76,12 @@ public class Score {
 	public String getName() {
 		return name;
 	}
+	
+	//비교객체
+		public boolean equals( Score obj) {		 
+			boolean result=false;		
+			if( this.name.equals(obj.name))
+				result=true;		
+			return result ;
+		}
 }

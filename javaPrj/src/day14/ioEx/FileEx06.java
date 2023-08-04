@@ -1,0 +1,25 @@
+package day14.ioEx;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileEx06 {
+
+	public static void main(String[] args) {
+		
+		
+		try {
+			FileWriter w = new FileWriter("res/output.txt");
+			w.write("안녕하세요");
+			w.flush();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}
