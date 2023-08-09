@@ -1,9 +1,9 @@
-package javaPrj;
+package javaPrj.프로젝트;
 
 import java.util.Scanner;
 
-public class project_taemin03 {
-    public static void main(String[] args) {
+public class 희망도서_class01 {
+    public static void hope() {
        
         loop:while(true){
 
@@ -11,15 +11,16 @@ public class project_taemin03 {
             Scanner select = new Scanner(System.in);
 			String menuNum = select.nextLine();
             int menu = Integer.parseInt(menuNum);
+            
             switch (menu){
                 case 1: 
-            		도서조회_class.registerBook();	// 희망도서를 신청하는 메서드
+            		희망도서_class02.registerBook();	// 희망도서를 신청하는 메서드
                     break;
                 case 2: 
-                	도서조회_class.scanBook();		// 신청한도서를 조회하는 메서드
+                	희망도서_class02.scanBook();		// 신청한도서를 조회하는 메서드
                     break;
                 case 3: 
-                	도서조회_class.delBook();		// 신청한도서를 취소하는 메서드
+                	희망도서_class02.delBook();		// 신청한도서를 취소하는 메서드
                     break;
                 case 4: 
                     System.out.println("도서신청을 종료합니다");

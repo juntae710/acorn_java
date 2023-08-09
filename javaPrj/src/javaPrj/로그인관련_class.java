@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class juntae {
+public class 로그인관련_class {
 	public static void 로그인() {
 		System.out.println("아이디를 입력해 주세요.");
 		Scanner sc = new Scanner(System.in);

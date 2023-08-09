@@ -2,7 +2,7 @@ package javaPrj;
 
 import java.util.Scanner;
 
-public class projet_taemin03_class {
+public class 도서조회_class {
 	static String[] bookArr = new String[4];
 	static int index = 0;
 	static Scanner select = new Scanner(System.in);

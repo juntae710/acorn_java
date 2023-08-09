@@ -147,13 +147,13 @@ public class 메인 {
 							            int menu = Integer.parseInt(menuNum);
 							            switch (menu){
 							                case 1: 
-							            		projet_taemin03_class.registerBook();	// 희망도서를 신청하는 메서드
+							            		도서조회_class.registerBook();	// 희망도서를 신청하는 메서드
 							                    break;
 							                case 2: 
-							                	projet_taemin03_class.scanBook();		// 신청한도서를 조회하는 메서드
+							                	도서조회_class.scanBook();		// 신청한도서를 조회하는 메서드
 							                    break;
 							                case 3: 
-							                	projet_taemin03_class.delBook();		// 신청한도서를 취소하는 메서드
+							                	도서조회_class.delBook();		// 신청한도서를 취소하는 메서드
 							                    break;
 							                case 4: 
 							                    System.out.println("도서신청을 종료합니다");
