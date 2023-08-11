@@ -1,4 +1,4 @@
-package javaPrj.프로젝트;
+package  javaPrj.ver2;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,9 +12,53 @@ import java.util.Scanner;
 
 public class 로그인관련_class {
 
+	public static void 로그인스위치() {
+		Scanner sc = new Scanner(System.in);
+		if(로그인()==0) {
+			loop02: while (true) {
+				System.out.println(" ====================");
+				System.out.println(" 메뉴를 선택하세요.\n --------------- \n 1. 대여\n 2. 반납\n 3. 도서신청\n 4. 로그아웃");
+				System.out.println(" ====================");
+				
+				
+				try {
+					int loginNum = sc.nextInt();
+					if(0 < loginNum && loginNum <5) {
+						switch (loginNum) {
+						case 1:
+							대여();
+							break;
+						case 2:
+							반납();
+							break;
+						case 3:
+							도서신청();
+							break;
+						case 4:
+							System.out.println(" ====================");
+							System.out.println(" 메인화면으로 돌아갑니다.");
+							System.out.println(" ====================");
+							break loop02;
+						}
+					}else {
+						throw new Exception();
+					}
+				} catch (Exception e) {
+					System.out.println(" ====================");
+					System.out.println(" 올바른 메뉴번호를 입력하세요.");
+					System.out.println(" ====================");
+					break;
+				}
+
+			}
+		}
+	}
+	
 	public static int 로그인() {
 		int sum = 0;
-		System.out.println("아이디를 입력해 주세요.");
+		System.out.println(" ====================");
+		System.out.println(" 아이디를 입력해 주세요.");
+		System.out.println(" ====================");
 		Scanner sc = new Scanner(System.in);
 		String 아이디 = sc.nextLine();
 		try {
@@ -32,15 +76,18 @@ public class 로그인관련_class {
 			int 카운팅 = 0;
 			for (int i = 0; i < aLines.size(); i++) {
 				if (aLines.get(i).equals(아이디)) {
-					System.out.println("로그인완료");
-
+					System.out.println(" ====================");
+					System.out.println(" 로그인 완료.");
+					System.out.println(" ====================\n");
 				} else {
 					카운팅++;
 				}
 			}
 			if (카운팅 == aLines.size()) {
-				System.out.println("잘못된입력입니다.");
-				sum = 1;
+				System.out.println(" ====================");
+				System.out.println(" 해당하는 아이디가 없습니다.");
+				System.out.println(" ====================");
+				sum=1;
 			}
 		} catch (Exception e) {
 		}
@@ -50,7 +97,9 @@ public class 로그인관련_class {
 	public static void 대여() {
 
 		Scanner sc = new Scanner(System.in);
-		System.out.println("대여할 책번호를 입력해 주세요.");
+		System.out.println(" ====================");
+		System.out.println(" 대여할 도서번호를 입력해 주세요.");
+		System.out.println(" ====================");
 		String 책번호 = sc.nextLine();
 		String menu2;
 		try {
@@ -66,8 +115,11 @@ public class 로그인관련_class {
 			int 카운팅 = 0;
 			for (int i = 0; i < aLines.size(); i++) {
 				if (aLines.get(i).equals(책번호)) {
-					System.out.println("대여하시겠습니까?");
-					System.out.println("1.네 2.아니요");
+					System.out.println(" ====================");
+					System.out.println(" 대여하시겠습니까?");
+					System.out.println(" --------------------");
+					System.out.println(" 1. 네 2. 아니요");
+					System.out.println(" ====================");
 					menu2 = sc.nextLine();
 					switch (menu2) {
 					case "1":
@@ -88,14 +140,20 @@ public class 로그인관련_class {
 							}
 							writer.close();
 							reader.close();
-							if (inputFile.delete()) {
+							if (inputFile.delete()) {								
 								if (tempFile.renameTo(inputFile)) {
-									System.out.println("대여완료.(대여기간 : 금일부터 2주)");
+									System.out.println(" ====================");
+									System.out.println(" 대여완료. 대여기간은 오늘부터 14일입니다.");
+									System.out.println(" ====================");
 								} else {
-									System.err.println("임시파일 이름 바꾸기 오류");
+									System.out.println(" ====================");
+									System.err.println(" 임시파일 이름 바꾸기 오류.");
+									System.out.println(" ====================");
 								}
 							} else {
-								System.err.println("원본파일 삭제오류");
+								System.out.println(" ====================");
+								System.err.println(" 원본파일 삭제오류.");
+								System.out.println(" ====================");
 							}
 						} catch (IOException e) {
 							e.printStackTrace();
@@ -110,7 +168,9 @@ public class 로그인관련_class {
 				}
 			}
 			if (카운팅 == aLines.size()) {
-				System.out.println("현제 도서관에 없는 책입니다.");
+				System.out.println(" ====================");
+				System.out.println(" 현재 도서관에 없는 도서입니다.");
+				System.out.println(" ====================");
 			}
 		} catch (Exception e) {
 		}
@@ -119,12 +179,16 @@ public class 로그인관련_class {
 
 	public static void 반납() {
 
-		System.out.println("반납\n책번호를 입력해주세요.");
+		System.out.println(" ====================");
+		System.out.println(" 반납할 도서번호를 입력해주세요.");
+		System.out.println(" ====================");
 		Scanner sc = new Scanner(System.in);
 		String 책번호 = sc.nextLine();
 
 		String filePath = "res/책정보.txt";
 		String content = 책번호;
+		
+		int bookNum = Integer.parseInt(content);
 
 		try {
 			FileWriter fileWriter = new FileWriter(filePath, true);
@@ -133,7 +197,9 @@ public class 로그인관련_class {
 			bufferedWriter.newLine();
 			bufferedWriter.close();
 			fileWriter.close();
-			System.out.println("반납 되었습니다.");
+			System.out.println(" ====================");
+			System.out.println(" 반납 되었습니다.");
+			System.out.println(" ====================");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -143,7 +209,9 @@ public class 로그인관련_class {
 
 		loop: while (true) {
 
-			System.out.println("메뉴를 선택하세요>\n1.희망도서 신청 2.희망도서 조회 3.도서신청 취소 4.종료");
+			System.out.println(" ====================");
+			System.out.println(" 메뉴를 선택하세요.\n -------------------- \n 0. 종료\n 1. 희망도서 신청\n 2. 희망도서 조회\n 3. 도서신청 취소\n ");
+			System.out.println(" ====================");
 			Scanner select = new Scanner(System.in);
 			String menuNum = select.nextLine();
 			int menu = Integer.parseInt(menuNum);
@@ -158,38 +226,14 @@ public class 로그인관련_class {
 			case 3:
 				희망도서_class02.delBook(); // 신청한 도서를 취소하는 메서드
 				break;
-			case 4:
-				System.out.println("도서신청을 종료합니다");
+			case 0:
+				System.out.println(" ====================");
+				System.out.println(" 도서신청을 종료합니다.");
+				System.out.println(" ====================");
 				break loop;
 			}
 		}
 	}
 
-	public static void 로그인스위치() {
-		Scanner sc = new Scanner(System.in);
-		if (로그인() == 0) {
-			loop02: while (true) {
-				System.out.println("메뉴를 선택하세요\n1.대여 2.반납 3.도서신청 4.로그아웃");
-				int loginNum = sc.nextInt();
-				switch (loginNum) {
-				case 1:
-					대여();
-					break;
-				case 2:
-					반납();
-					break;
-				case 3:
-					도서신청();
-					break;
-				case 4:
-					break loop02;
-
-				default:
-					break;
-				}
-
-			}
-		}
-	}
 
 }

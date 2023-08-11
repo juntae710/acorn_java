@@ -1,4 +1,4 @@
-ackage javaPrj.프로젝트;
+package  javaPrj.ver2;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,10 +18,14 @@ public class 회원가입_class02 {
     
     public void add(String id) {
         if (joinId(id)) {
-            System.out.println("중복된 아이디입니다. \n");
+        	System.out.println(" ====================");
+            System.out.println(" 중복된 아이디입니다.");
+            System.out.println(" ====================\n");
         } else {
             memberIds.add(id);
-            System.out.println("회원 등록이 완료되었습니다. \n");
+            System.out.println(" ====================");
+            System.out.println(" 회원 등록이 완료되었습니다.");
+            System.out.println(" ====================\n");
         }
         
     }
