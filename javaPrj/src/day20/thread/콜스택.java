@@ -1,0 +1,22 @@
+package day20.thread;
+
+public class 콜스택 {
+	// 콜스택이란? 매서드 수행에 필요한 메모리가 제공되는 공간
+	// 스택 : 먼저들어온것이 나중에 나가는 구조
+	// 매서드가 호출되면 호출스택에 메모리 할당, 종료되면 해제됨
+
+	void 메서드1() {
+		메서드2();
+		System.out.println("메서드1 call");
+	}
+
+	private void 메서드2() {
+		System.out.println("메서드2 call");
+	}
+
+	public static void main(String[] args) {
+		콜스택 p = new 콜스택();
+		p.메서드1();
+		System.out.println("main bye");
+	}
+}
